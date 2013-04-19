@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'pg'
 gem 'therubyracer'
 gem 'unicorn'
+gem 'capistrano' #just to satisfy the generators
 
 group :development do
   gem 'awesome_print'
@@ -26,6 +27,10 @@ group :development do
   gem 'rvm-capistrano'
   gem 'wirble'
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
