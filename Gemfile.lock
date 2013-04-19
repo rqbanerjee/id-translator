@@ -133,10 +133,6 @@ GEM
       oa-oauth (= 0.3.2)
       oa-openid (= 0.3.2)
     orm_adapter (0.0.6)
-    otf (0.0.10)
-      bundler (>= 1.0.9)
-      rails (= 3.2.1)
-      thor (= 0.14.6)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.8.2)
@@ -252,7 +248,6 @@ DEPENDENCIES
   growl_notify
   kaminari
   omniauth (= 0.3.2)
-  otf (= 0.0.10)
   pg
   pry
   pry-nav
