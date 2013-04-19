@@ -28,13 +28,6 @@ group :development do
   gem 'sqlite3'
 end
 
-# OS X specific gems which help with TDD.
-group :darwin do
-  gem 'growl'
-  gem 'growl_notify'
-  gem 'rb-fsevent'
-end
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
