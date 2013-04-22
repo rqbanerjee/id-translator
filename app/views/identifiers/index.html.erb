@@ -1,0 +1,27 @@
+<h1>Listing Identifiers</h1>
+
+<table border="1">
+  <tr>
+    <th>Real</th>
+    <th>Generated</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <!--<th></th>-->
+  </tr>
+
+<% @identifiers.each do |identifier| %>
+  <tr>
+    <td><%= identifier.real_id %></td>
+    <td><%= identifier.generated_id %></td>
+    <td><%= identifier.id_type.name %></td>
+    <td><%= link_to 'Show', identifier %></td>
+    <td><%= link_to 'Edit', edit_identifier_path(identifier) %></td>
+    <!--<td><%= link_to 'Destroy', identifier, confirm: 'Are you sure?', method: :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Identifier', new_identifier_path %>

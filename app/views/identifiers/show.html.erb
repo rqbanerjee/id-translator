@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Real:</b>
+  <%= @identifier.real_id %>
+</p>
+
+<p>
+  <b>Generated:</b>
+  <%= @identifier.generated_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @identifier.type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_identifier_path(@identifier) %> |
+<%= link_to 'Back', identifiers_path %>

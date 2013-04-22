@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @id_type.name %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @id_type.length %>
+</p>
+
+
+<%= link_to 'Edit', edit_id_type_path(@id_type) %> |
+<%= link_to 'Back', id_types_path %>
