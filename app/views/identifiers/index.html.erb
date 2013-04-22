@@ -4,6 +4,7 @@
   <tr>
     <th>Real</th>
     <th>Generated</th>
+    <th>Length</th>
     <th>Type</th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
   <tr>
     <td><%= identifier.real_id %></td>
     <td><%= identifier.generated_id %></td>
+    <td><%= identifier.generated_id.length %></td>
     <td><%= identifier.id_type.name %></td>
     <td><%= link_to 'Show', identifier %></td>
     <td><%= link_to 'Edit', edit_identifier_path(identifier) %></td>

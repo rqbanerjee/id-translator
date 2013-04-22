@@ -24,7 +24,7 @@ class IdentifiersController < ApplicationController
   # GET /identifiers/new
   # GET /identifiers/new.json
   def new
-    @identifier_types = IdType.all
+    @types_array = IdType.all.map { |i| [i.name, i.id]}
     @identifier = Identifier.new
 
     respond_to do |format|
@@ -35,13 +35,15 @@ class IdentifiersController < ApplicationController
 
   # GET /identifiers/1/edit
   def edit
-    @identifier_types = IdType.all
+    @types_array = IdType.all.map { |i| [i.name, i.id]}
     @identifier = Identifier.find(params[:id])
   end
 
   # POST /identifiers
   # POST /identifiers.json
   def create
+    id_fields = params[:identifier]
+    logger.warn "ID FIELDS #{id_fields}"
     @identifier = Identifier.new(params[:identifier])
 
     respond_to do |format|
@@ -58,7 +60,7 @@ class IdentifiersController < ApplicationController
   # PUT /identifiers/1
   # PUT /identifiers/1.json
   def update
-    @identifier_types = IdType.all
+    @types_array = IdType.all.map { |i| [i.name, i.id]}
     @identifier = Identifier.find(params[:id])
 
     respond_to do |format|

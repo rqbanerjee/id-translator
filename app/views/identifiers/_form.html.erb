@@ -16,13 +16,8 @@
     <%= f.text_field :real_id %>
   </div>
   <div class="field">
-    <%= f.label :generated_id %><br />
-    <%= f.text_field :generated_id %>
-  </div>
-    <% types_array = IdType.all.map { |i| [i.name, i.id] } %>
-  <div class="field">
     <%= f.label :type_id %><br />
-    <%= f.select :type_id, types_array %>
+    <%= f.select :type_id, @types_array %>
   </div>
   <div class="actions">
     <%= f.submit %>
