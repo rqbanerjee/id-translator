@@ -16,6 +16,7 @@ This code is a Proof Of Concept *POC* and is not intended for production use.
 
 == License
 ID Translator - Converts private account IDs into stable, redistributable hashes
+
 Copyright (C) 2013 Rajat Banerjee
 
 This program is free software; you can redistribute it and/or
@@ -47,7 +48,7 @@ from the Heroku site:
 https://devcenter.heroku.com/articles/rails-unicorn
 
 == Tasks to productionalize this code
-* Make variable length hashes work. Right now all hashes come out to by 28 bytes
+* Make variable length hashes work. Right now all hashes come out to be 28 bytes
 * Salt the Identifier.real_id field, so that if hackers get into the db, it would be difficult to obtain the real ids
 * Add authentication via Oauth or openid
 * Add High Availability
