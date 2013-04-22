@@ -43,8 +43,17 @@ class IdentifiersController < ApplicationController
   # POST /identifiers.json
   def create
     id_fields = params[:identifier]
-    logger.warn "ID FIELDS #{id_fields}"
-    @identifier = Identifier.new(params[:identifier])
+    incoming_real_id = params[:identifier][:real_id]
+    incoming_type_id = params[:identifier][:type_id]
+
+    existing = Identifier.where("real_id = ? AND type_id = ?", incoming_real_id, incoming_type_id)
+    if (existing.nil? or existing.empty?)
+      logger.info "Identifier doesn't exist with #{params[:identifier]}, creating new one"
+      @identifier = Identifier.new(params[:identifier])
+    else
+      logger.info "Returning existing Identifier with same ID #{incoming_real_id} and identifier type."
+      @identifier = existing.first
+    end
 
     respond_to do |format|
       if @identifier.save

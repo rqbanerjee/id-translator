@@ -23,21 +23,18 @@ class Identifier < ActiveRecord::Base
   private
   def hash_id(to_hash)
     sha1 = Digest::SHA1.new
-    hashed= (sha1.base64digest(to_hash)).to_s
+    hashed = (sha1.base64digest(to_hash)).to_s
     logger.debug "hashed #{to_hash} to hex #{hashed} (#{hashed.length} length)"
-
     hashed
   end
 
   # Returns true if the generated_id exists in the generated_id column of any identifier
   def collision?(generated_id)
-    logger.info "checking collisions on #{generated_id.to_s}"
-    collisions = Identifier.find_all_by_generated_id(generated_id.to_s)
-    if collisions.nil? or collisions.empty?
-      false
-    else
-      logger.info "generated ID #{generated_id} collided with #{collisions.size} other entities. Re-hashing"
+    if Identifier.where(:generated_id => generated_id).exists?
+      logger.info "generated ID #{generated_id} collided with another entity. Re-hashing"
       true
+    else
+      false
     end
   end
 end
